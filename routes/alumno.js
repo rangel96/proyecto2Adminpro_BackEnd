@@ -5,7 +5,7 @@ const sql = require("mssql");
 
 const router = Router();
 
-//getall
+// GetAll
 router.get("/", (req, res) => {
     sql.on("error", (err) => {
         console.log(err);
@@ -24,7 +24,8 @@ router.get("/", (req, res) => {
         });
 });
 
-//getbyid
+
+// getById
 router.get("/:id", (req, res) => {
     sql.on("error", (err) => {
         console.log(err);
@@ -46,7 +47,8 @@ router.get("/:id", (req, res) => {
         });
 });
 
-//Add
+
+// Add
 router.post("/", (req, res) => {
     sql.on("error", (err) => {
         console.log(err);
@@ -75,7 +77,8 @@ router.post("/", (req, res) => {
         });
 });
 
-//update
+
+// Update
 router.put("/:id", (req, res) => {
     sql.on("error", (err) => {
         console.log(err);
@@ -105,6 +108,7 @@ router.put("/:id", (req, res) => {
         });
 });
 
+// Delete
 router.delete("/:id", (req, res) => {
     sql.on("error", (err) => {
         console.log(err);
