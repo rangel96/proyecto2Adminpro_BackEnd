@@ -10,9 +10,6 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
-// Directorio publico
-app.use(express.static('public'));
-
 // Routes
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/auth', require('./routes/auth'));

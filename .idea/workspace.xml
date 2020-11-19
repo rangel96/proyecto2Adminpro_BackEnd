@@ -23,26 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37ec13c9-ea60-4f73-b5a4-06a370d9b9dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Google_login_info.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/controlles/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/controlles/usuarios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/helpers/google-verify.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/helpers/jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/middlewares/validation-jwt.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bml/middlewares/validation-values.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dal/data-access.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/usuarios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/dal/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/alumno.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/docentes.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/materias.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,6 +138,7 @@
       <workItem from="1605713390174" duration="26015000" />
       <workItem from="1605748299268" duration="18300000" />
       <workItem from="1605799979307" duration="15919000" />
+      <workItem from="1605824048272" duration="492000" />
     </task>
     <servers />
   </component>
