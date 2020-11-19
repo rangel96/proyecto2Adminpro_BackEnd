@@ -1,0 +1,13 @@
+{
+  "web": {
+    "client_id": "740667955534-egpq3ic1rk3db6l25n09u1tbl2a6cb8n.apps.googleusercontent.com",
+    "project_id": "adminpro-backend",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_secret": "vmqz6eCFM-ls33KmV08ujHlj",
+    "javascript_origins": [
+      "http://localhost:3000"
+    ]
+  }
+}
