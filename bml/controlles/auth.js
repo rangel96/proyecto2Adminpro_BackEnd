@@ -22,7 +22,7 @@ const login = async (req, res = response) => {
         usuario = await querySingle('stp_usuarios_login', sqlParams);
 
         if (!usuario) {
-            res.status(400).json({
+            res.status(204).json({
                 ok: false,
                 error: 'Email no encontrado'
             });
@@ -31,7 +31,7 @@ const login = async (req, res = response) => {
         const validPassword = bcrypt.compareSync(password, usuario.password);
 
         if (!validPassword) {
-            return res.status(400).json({
+            return res.status(200).json({
                 ok: false,
                 error: 'Contraseña incorrecta'
             });
@@ -46,7 +46,7 @@ const login = async (req, res = response) => {
             token: token
         });
     } catch (err) {
-        return res.status(400).json({
+        return res.status(204).json({
             ok: false,
             msg: 'Login incorrecto n/Credenciales incorrectas',
         });
@@ -137,7 +137,7 @@ const googleSignIn = async (req, res = response) => {
         })
     } catch (error) {
         console.log('');
-        res.status(401).json({
+        res.status(204).json({
             ok: false,
             msg: 'Token de google no es correcto',
             error: error

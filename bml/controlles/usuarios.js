@@ -29,7 +29,7 @@ const getUsuarios = async (req, res) => {
         }
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(400).json({
+        return res.status(200).json({
             ok: false,
             msg: 'No se puede obtener los usuarios',
             error: err
@@ -64,7 +64,7 @@ const getUsuario = async (req, res) => {
         }
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(401).json({
+        return res.status(204).json({
             ok: false,
             msg: 'Usuario no encontrado, intentelo de nuevo',
             error: err
@@ -122,7 +122,7 @@ const addUsuario = async (req, res = response) => {
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(404).json({
+        return res.status(204).json({
             ok: false,
             msg: 'El usuario no se pudo agregar',
             error: err
@@ -177,7 +177,7 @@ const updateUsuario = async (req, res = response) => {
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(401).json({
+        return res.status(201).json({
             ok: false,
             msg: 'El usuario no se pudo actualizar',
             error: err
@@ -203,7 +203,7 @@ const deleteUsuario = async (req, res) => {
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(401).json({
+        return res.status(201).json({
             ok: false,
             msg: 'Usuario no se pudo eliminar',
             error: err

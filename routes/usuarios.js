@@ -2,6 +2,7 @@
 const { Router } = require('express');
 const { check } = require('express-validator')
 const { validatorCampos } = require('../bml/middlewares/validation-values');
+const { valitationJWT } = require('../bml/middlewares/validation-jwt');
 const { getUsuarios, getUsuario, addUsuario, updateUsuario, deleteUsuario, } = require('../bml/controlles/usuarios');
 
 const router = Router();
