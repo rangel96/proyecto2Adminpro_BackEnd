@@ -43,6 +43,7 @@ const login = async (req, res = response) => {
         res.status(201).json({
             ok: true,
             msg: 'Acceso correcto',
+            usuario,
             token: token
         });
     } catch (err) {
