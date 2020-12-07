@@ -17,22 +17,24 @@ const getUsuarios = async (req, res) => {
 
         if (!usuarios) {
             console.log("BD vacia");
-            res.status(101).json({
-                ok: true,
-                msg: 'Ingresar usuarios'
+            res.json({
+                status: true,
+                msg: 'Ingresar usuarios',
+                data: null
             });
         } else {
-            res.status(200).json({
-                ok: true,
-                usuarios
+            res.json({
+                status: true,
+                msg: 'Usuario',
+                data: usuarios
             });
         }
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(200).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'No se puede obtener los usuarios',
-            error: err
+            data: err
         });
     }
 }
@@ -52,22 +54,24 @@ const getUsuario = async (req, res) => {
 
         if (!usuario) {
             console.log("Usuario no encontrado");
-            res.status(204).json({
-                ok: true,
+            res.json({
+                status: true,
                 msg: 'Usuario inexistente o vacio',
+                data: null
             });
         } else {
-            res.status(200).json({
-                ok: true,
-                usuario: usuario
+            res.json({
+                status: true,
+                msg: 'Usuario encontrado',
+                data: usuario
             });
         }
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(204).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'Usuario no encontrado, intentelo de nuevo',
-            error: err
+            data: err
         });
     }
 }
@@ -108,24 +112,24 @@ const addUsuario = async (req, res = response) => {
             },
         ];
 
-        usuario = await query('stp_usuarios_add', sqlParams);
-        console.log('Usuario added');
+        usuario = await querySingle('stp_usuarios_add', sqlParams);
+        console.log('Usuario added');y
+
 
         const token = await generateJWT(usuario.idUsuario);
         console.log('Token: \n' + token)
 
-        res.status(200).json({
-            ok: true,
+        res.json({
+            status: true,
             msg: 'Usuario agregado correctamente',
-            usuario,
-            token: token
+            data: { usuario, token }
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(204).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'El usuario no se pudo agregar',
-            error: err
+            data: err
         });
     }
 }
@@ -170,17 +174,16 @@ const updateUsuario = async (req, res = response) => {
         console.log('Token: \n' + token);
 
         res.json({
-            ok: true,
+            status: true,
             msg: 'Usuario modificado correctamente',
-            usuario,
-            token: token
+            data: { usuario, token }
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(201).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'El usuario no se pudo actualizar',
-            error: err
+            data: err
         });
     }
 }
@@ -197,16 +200,17 @@ const deleteUsuario = async (req, res) => {
 
         usuario = await execute('stp_usuarios_delete', sqlParams);
 
-        res.status(200).json({
-            ok: true,
-            msg: 'Usuario eliminado'
+        res.json({
+            status: true,
+            msg: 'Usuario eliminado',
+            data: null
         });
     } catch (err) {
         console.error('Error: ' + err);
-        return res.status(201).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'Usuario no se pudo eliminar',
-            error: err
+            data: err
         });
     }
 }

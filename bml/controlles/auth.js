@@ -22,34 +22,36 @@ const login = async (req, res = response) => {
         usuario = await querySingle('stp_usuarios_login', sqlParams);
 
         if (!usuario) {
-            res.status(204).json({
-                ok: false,
-                error: 'Email no encontrado'
+            res.json({
+                status: false,
+                msg: 'Email no encontrado',
+                data: null
             });
         }
 
         const validPassword = bcrypt.compareSync(password, usuario.password);
 
         if (!validPassword) {
-            return res.status(200).json({
-                ok: false,
-                error: 'Contraseña incorrecta'
+            return res.json({
+                status: false,
+                msg: 'Password incorrect',
+                data: null
             });
         }
 
         const token = await generateJWT(usuario.idUsuario);
-        console.log('token: ' + token);
+        console.log('Token: \n' + token);
 
-        res.status(201).json({
-            ok: true,
+        res.json({
+            status: true,
             msg: 'Acceso correcto',
-            usuario,
-            token: token
+            data: { usuario, token }
         });
     } catch (err) {
-        return res.status(204).json({
-            ok: false,
+        return res.json({
+            status: false,
             msg: 'Login incorrecto n/Credenciales incorrectas',
+            data: null
         });
     }
 }
@@ -130,18 +132,17 @@ const googleSignIn = async (req, res = response) => {
         const token = await generateJWT(usuario.idUsuario);
         console.log('token: n/' + token);
 
-        res.status(201).json({
-            ok: true,
+        res.json({
+            status: true,
             msg: 'Logeado correctamente',
-            usuario,
-            token: token
+            data: { usuario, token }
         })
     } catch (error) {
         console.log('');
-        res.status(204).json({
-            ok: false,
+        res.json({
+            status: false,
             msg: 'Token de google no es correcto',
-            error: error
+            data: error
         })
     }
 }

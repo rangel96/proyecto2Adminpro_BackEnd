@@ -3,14 +3,6 @@ const conString = require('./config');
 
 // Query selects
 const query = async (stpName, sqlParams) => {
-    sql.on('error', err => {
-        console.error(err);
-        res.json({
-            ok: false,
-            mgs: 'error en la configuracion de SQL',
-            error: err
-        });
-    });
 
     const pool = await sql.connect(conString);
     const req = await pool.request();
@@ -27,14 +19,6 @@ const query = async (stpName, sqlParams) => {
 
 // Query selects 1 row
 const querySingle = async (stpName, sqlParams) => {
-    sql.on('error', err => {
-        console.error(err);
-        res.json({
-            ok: false,
-            mgs: 'error en la configuracion de SQL',
-            error: err
-        });
-    });
 
     const pool = await sql.connect(conString);
     const req = await pool.request();
@@ -50,14 +34,6 @@ const querySingle = async (stpName, sqlParams) => {
 
 // Execute procesos que modifican las tablas
 const execute = async (stpName, sqlParams) => {
-    sql.on('error', err => {
-        console.error(err);
-        res.json({
-            ok: false,
-            mgs: 'error en la configuracion de SQL',
-            error: err
-        });
-    });
 
     const pool = await sql.connect(conString);
     const req = await pool.request();
