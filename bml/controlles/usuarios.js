@@ -39,8 +39,8 @@ const getUsuarios = async (req, res) => {
     }
 }
 
-/* Obtener UN Usuario */
-const getUsuario = async (req, res) => {
+/* Obtener UN Usuario por ID */
+const getUsuarioId = async (req, res) => {
     const idUser = req.params.id;
 
     try {
@@ -49,8 +49,46 @@ const getUsuario = async (req, res) => {
             'value': idUser
         }];
 
-        const resp = await querySingle('stp_usuarios_getbyid', sqlParams);
-        usuario = resp;
+        const usuario = await querySingle('stp_usuarios_getbyid', sqlParams);
+
+        if (!usuario) {
+            console.log("Usuario no encontrado");
+            res.json({
+                status: true,
+                msg: 'Usuario inexistente o vacio',
+                data: null
+            });
+        } else {
+            res.json({
+                status: true,
+                msg: 'Usuario encontrado',
+                data: usuario
+            });
+        }
+    } catch (err) {
+        console.error('Error: ' + err);
+        return res.json({
+            status: false,
+            msg: 'Usuario no encontrado, intentelo de nuevo',
+            data: err
+        });
+    }
+}
+
+/* Obtener UN Usuario por EMAIL */
+const getUsuarioEmail = async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        sqlParams = [
+            {
+                'name': 'email',
+                'value': email
+            }
+        ];
+        console.log(email);
+
+        usuario = await querySingle('stp_usuarios_getbyemail', sqlParams);
 
         if (!usuario) {
             console.log("Usuario no encontrado");
@@ -113,7 +151,7 @@ const addUsuario = async (req, res = response) => {
         ];
 
         usuario = await querySingle('stp_usuarios_add', sqlParams);
-        console.log('Usuario added');y
+        console.log('Usuario added');
 
 
         const token = await generateJWT(usuario.idUsuario);
@@ -217,7 +255,8 @@ const deleteUsuario = async (req, res) => {
 
 module.exports = {
     getUsuarios,
-    getUsuario,
+    getUsuarioId,
+    getUsuarioEmail,
     addUsuario,
     updateUsuario,
     deleteUsuario,
