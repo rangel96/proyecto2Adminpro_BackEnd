@@ -23,18 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37ec13c9-ea60-4f73-b5a4-06a370d9b9dc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/adminpro-backend.rar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bml/controlles/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/controlles/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bml/controlles/usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/controlles/usuarios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bml/helpers/google-verify.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/helpers/google-verify.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bml/helpers/jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/helpers/jwt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bml/middlewares/validation-jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/middlewares/validation-jwt.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/usuarios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminpro-backend.rar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +188,7 @@
       <workItem from="1607967432024" duration="3681000" />
       <workItem from="1607980288046" duration="670000" />
       <workItem from="1607981418689" duration="3021000" />
+      <workItem from="1607988896086" duration="1090000" />
     </task>
     <servers />
   </component>
