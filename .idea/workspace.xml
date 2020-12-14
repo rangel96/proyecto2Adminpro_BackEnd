@@ -23,8 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37ec13c9-ea60-4f73-b5a4-06a370d9b9dc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/adminpro-backend.rar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bml/controlles/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/controlles/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bml/controlles/usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/controlles/usuarios.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bml/helpers/google-verify.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/helpers/google-verify.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bml/helpers/jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/helpers/jwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bml/middlewares/validation-jwt.js" beforeDir="false" afterPath="$PROJECT_DIR$/bml/middlewares/validation-jwt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/usuarios.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/usuarios.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -169,7 +178,25 @@
       <workItem from="1607272428368" duration="1431000" />
       <workItem from="1607295056752" duration="11730000" />
       <workItem from="1607347415613" duration="1352000" />
-      <workItem from="1607387177070" duration="500000" />
+      <workItem from="1607387177070" duration="861000" />
+      <workItem from="1607401990675" duration="634000" />
+      <workItem from="1607438082446" duration="4537000" />
+      <workItem from="1607530796999" duration="2180000" />
+      <workItem from="1607560544098" duration="1639000" />
+      <workItem from="1607696293159" duration="5969000" />
+      <workItem from="1607817417819" duration="13000" />
+      <workItem from="1607830932196" duration="1725000" />
+      <workItem from="1607832999971" duration="2207000" />
+      <workItem from="1607885821290" duration="1906000" />
+      <workItem from="1607897780748" duration="753000" />
+      <workItem from="1607902325227" duration="364000" />
+      <workItem from="1607902887946" duration="5707000" />
+      <workItem from="1607912660748" duration="345000" />
+      <workItem from="1607915676542" duration="2101000" />
+      <workItem from="1607938228258" duration="3166000" />
+      <workItem from="1607967432024" duration="3681000" />
+      <workItem from="1607980288046" duration="670000" />
+      <workItem from="1607981418689" duration="3021000" />
     </task>
     <servers />
   </component>

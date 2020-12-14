@@ -1,12 +1,12 @@
 // Ruta api/usuarios
 const { Router } = require('express');
 const { check } = require('express-validator')
+
 const { validatorCampos } = require('../bml/middlewares/validation-values');
-const { valitationJWT } = require('../bml/middlewares/validation-jwt');
+const { validationJWT } = require('../bml/middlewares/validation-jwt');
 const {
     getUsuarios,
     getUsuarioId,
-    getUsuarioEmail,
     addUsuario,
     updateUsuario,
     deleteUsuario,
@@ -19,13 +19,6 @@ router.get('/', getUsuarios);
 
 // GetById
 router.get('/id/:id', getUsuarioId);
-
-// GetByEmail
-router.get('/email',
-    [
-        check('email', 'Email no válido').isEmail(),
-    ],
-    getUsuarioEmail);
 
 // Add User
 router.post('/',

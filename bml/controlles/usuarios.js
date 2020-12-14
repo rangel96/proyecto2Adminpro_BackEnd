@@ -5,7 +5,6 @@ const { generateJWT } = require('../helpers/jwt');
 
 const { query, querySingle, execute } = require('../../dal/data-access');
 
-let usuarios = null;
 let usuario = null;
 let sqlParams = null;
 
@@ -13,9 +12,9 @@ let sqlParams = null;
 /*  Obtener TODOS los Usuarios  */
 const getUsuarios = async (req, res) => {
     try {
-        usuarios = await query('stp_usuarios_getall');
+        usuario = await query('stp_usuarios_getall');
 
-        if (!usuarios) {
+        if (!usuario) {
             console.log("BD vacia");
             res.json({
                 status: true,
@@ -25,8 +24,8 @@ const getUsuarios = async (req, res) => {
         } else {
             res.json({
                 status: true,
-                msg: 'Usuario',
-                data: usuarios
+                msg: 'Usuarios',
+                data: { usuario }
             });
         }
     } catch (err) {
@@ -62,46 +61,7 @@ const getUsuarioId = async (req, res) => {
             res.json({
                 status: true,
                 msg: 'Usuario encontrado',
-                data: usuario
-            });
-        }
-    } catch (err) {
-        console.error('Error: ' + err);
-        return res.json({
-            status: false,
-            msg: 'Usuario no encontrado, intentelo de nuevo',
-            data: err
-        });
-    }
-}
-
-/* Obtener UN Usuario por EMAIL */
-const getUsuarioEmail = async (req, res) => {
-    const { email } = req.body;
-
-    try {
-        sqlParams = [
-            {
-                'name': 'email',
-                'value': email
-            }
-        ];
-        console.log(email);
-
-        usuario = await querySingle('stp_usuarios_getbyemail', sqlParams);
-
-        if (!usuario) {
-            console.log("Usuario no encontrado");
-            res.json({
-                status: true,
-                msg: 'Usuario inexistente o vacio',
-                data: null
-            });
-        } else {
-            res.json({
-                status: true,
-                msg: 'Usuario encontrado',
-                data: usuario
+                data: { usuario }
             });
         }
     } catch (err) {
@@ -205,11 +165,10 @@ const updateUsuario = async (req, res = response) => {
             }
         ];
 
-        usuario = await execute('stp_usuarios_update', sqlParams);
+        usuario = await querySingle('stp_usuarios_update', sqlParams);
         console.log('Usuario Edited');
 
         const token = await generateJWT(usuario.idUsuario);
-        console.log('Token: \n' + token);
 
         res.json({
             status: true,
@@ -248,7 +207,7 @@ const deleteUsuario = async (req, res) => {
         return res.json({
             status: false,
             msg: 'Usuario no se pudo eliminar',
-            data: err
+            data: null
         });
     }
 }
@@ -256,7 +215,6 @@ const deleteUsuario = async (req, res) => {
 module.exports = {
     getUsuarios,
     getUsuarioId,
-    getUsuarioEmail,
     addUsuario,
     updateUsuario,
     deleteUsuario,

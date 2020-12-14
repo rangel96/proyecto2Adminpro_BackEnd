@@ -40,17 +40,16 @@ const login = async (req, res = response) => {
         }
 
         const token = await generateJWT(usuario.idUsuario);
-        console.log('Token: \n' + token);
 
         res.json({
             status: true,
             msg: 'Acceso correcto',
             data: { usuario, token }
         });
-    } catch (err) {
+    } catch {
         return res.json({
             status: false,
-            msg: 'Login incorrecto n/Credenciales incorrectas',
+            msg: 'Login incorrecto. Credenciales incorrectas',
             data: null
         });
     }
@@ -61,14 +60,15 @@ const googleSignIn = async (req, res = response) => {
     const googleToken = req.body.token;
     const { name, email, picture } = await googleVerify(googleToken);
 
-    sqlParams = [{
-        'name': 'email',
-        'value': email
-    }];
-
     try {
-        usuario = await querySingle('stp_usuarios_login', sqlParams);
 
+        console.log(name);
+        sqlParams = [{
+            'name': 'email',
+            'value': email
+        }];
+
+        usuario = await querySingle('stp_usuarios_login', sqlParams);
         if (!usuario) {
             // Crear usuario
             sqlParams = [
@@ -130,24 +130,84 @@ const googleSignIn = async (req, res = response) => {
         }
 
         const token = await generateJWT(usuario.idUsuario);
-        console.log('token: n/' + token);
 
         res.json({
             status: true,
             msg: 'Logeado correctamente',
             data: { usuario, token }
-        })
+        });
     } catch (error) {
-        console.log('');
+        console.error(error);
         res.json({
             status: false,
             msg: 'Token de google no es correcto',
             data: error
-        })
+        });
     }
+}
+
+/* Obtener Usuario por EMAIL */
+const reset = async (req, res = response) => {
+    const { email } = req.body;
+
+    try {
+        sqlParams = [
+            {
+                'name': 'email',
+                'value': email
+            }
+        ];
+
+        usuario = await querySingle('stp_usuarios_getbyemail', sqlParams);
+
+        if (!usuario) {
+            res.json({
+                status: false,
+                msg: 'Usuario inexistente',
+                data: null
+            });
+        } else {
+            res.json({
+                status: true,
+                msg: 'usuario encontrado',
+                data: { usuario }
+            });
+        }
+    } catch {
+        return res.json({
+            status: false,
+            msg: 'Servidor desconcectado',
+            data: err
+        });
+    }
+}
+
+// Renovar token
+const newToken = async (req, res = response) => {
+    try {
+        const { id } = req.id;
+        const token = await generateJWT(id);
+
+        res.json({
+            status: true,
+            msg: 'Token nuevo',
+            data: { token }
+        });
+    } catch (e) {
+        console.error(e);
+        res.json({
+            status: false,
+            msg: 'Token no se puede renovar',
+            data: null
+        });
+
+    }
+
 }
 
 module.exports = {
     login,
-    googleSignIn
+    googleSignIn,
+    newToken,
+    reset
 }
