@@ -11,7 +11,7 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
-//Un poco de HTML
+// Dirección del FrontEnd
 app.use(express.static(path.join(__dirname, '/app/dist/adminpro')));
 
 // Routes
