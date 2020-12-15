@@ -38,6 +38,7 @@ const getUsuarios = async (req, res) => {
     }
 }
 
+
 /* Obtener UN Usuario por ID */
 const getUsuarioId = async (req, res) => {
     const idUser = req.params.id;
@@ -73,6 +74,7 @@ const getUsuarioId = async (req, res) => {
         });
     }
 }
+
 
 /*  Agregar un Usuario (Check encryptation) */
 const addUsuario = async (req, res = response) => {
@@ -132,6 +134,7 @@ const addUsuario = async (req, res = response) => {
     }
 }
 
+
 /* Editar Usuario */
 const updateUsuario = async (req, res = response) => {
     const idUsuario = req.params.id;
@@ -185,6 +188,7 @@ const updateUsuario = async (req, res = response) => {
     }
 }
 
+
 /* Eliminar Usuario */
 const deleteUsuario = async (req, res) => {
     const idUsuario = req.params.id;
@@ -211,6 +215,7 @@ const deleteUsuario = async (req, res) => {
         });
     }
 }
+
 
 module.exports = {
     getUsuarios,

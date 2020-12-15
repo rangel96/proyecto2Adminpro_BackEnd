@@ -10,12 +10,17 @@ const app = express();
 app.use(cors({ origin: true }));
 app.use(express.json());
 
-//Borrar despues
-app.use(express.static('public'));
+//Un poco de HTML
+// app.use(express.static('public'));
 
 // Routes
 app.use('/api/usuarios', require('./routes/usuarios'));
 app.use('/api/auth', require('./routes/auth'));
+
+// Entidades
+app.use('/api/alumnos', require('./routes/alumnos'));
+app.use('/api/docentes', require('./routes/docentes'));
+app.use('/api/materias', require('./routes/materias'));
 
 // Start server
 app.listen(port, err => {

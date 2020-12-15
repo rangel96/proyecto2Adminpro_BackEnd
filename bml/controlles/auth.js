@@ -55,6 +55,7 @@ const login = async (req, res = response) => {
     }
 }
 
+
 // Login with GOOGLE
 const googleSignIn = async (req, res = response) => {
     const googleToken = req.body.token;
@@ -146,7 +147,8 @@ const googleSignIn = async (req, res = response) => {
     }
 }
 
-/* Obtener Usuario por EMAIL */
+
+// Obtener Usuario por EMAIL
 const reset = async (req, res = response) => {
     const { email } = req.body;
 
@@ -182,6 +184,7 @@ const reset = async (req, res = response) => {
     }
 }
 
+
 // Renovar token
 const newToken = async (req, res = response) => {
     try {
@@ -204,6 +207,7 @@ const newToken = async (req, res = response) => {
     }
 
 }
+
 
 module.exports = {
     login,
